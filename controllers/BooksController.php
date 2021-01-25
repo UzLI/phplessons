@@ -92,10 +92,7 @@ class BooksController extends Controller
     {
 
         $model = $this->findModel($id);
-        //Текущий список авторов книги
-        foreach ($model->authors as $auth) {
-            $model->idAuthors[] = $auth->id;
-        }
+
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
